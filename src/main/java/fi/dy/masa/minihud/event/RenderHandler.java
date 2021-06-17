@@ -520,7 +520,10 @@ public class RenderHandler implements IRenderer
                 default:
             }
 
-            this.addLine(String.format("Facing: %s (%s)", facing, str));
+            double yaw = MathHelper.wrapDegrees(entity.getHeadYaw());
+            double pitch = MathHelper.wrapDegrees(entity.pitch);
+
+            this.addLine(String.format("Facing: %s (%s) (%4.1f, %3.1f)", facing, str, yaw, pitch));
         }
         else if (type == InfoToggle.LIGHT_LEVEL)
         {
